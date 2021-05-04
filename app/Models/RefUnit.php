@@ -9,6 +9,8 @@ class RefUnit extends Model
 {
     use HasFactory;
 
+    protected $table = 'ref_unit';
+
     public function childrenUnits() {
         return $this->hasMany(RefUnit::class, 'id_unit_parent');
     }
