@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUraianPekerjaanTable extends Migration
+class CreateRefUnitTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,20 @@ class CreateUraianPekerjaanTable extends Migration
      */
     public function up()
     {
-        Schema::create('uraian_pekerjaan', function (Blueprint $table) {
+        Schema::create('ref_unit', function (Blueprint $table) {
             $table->id();
-            $table->string('uraian');
-            $table->string('keterangan');
-            $table->integer('poin');
+            $table->string('nama', 50);
+            $table->integer('level');
             $table->boolean('is_active');
-            $table->string('satuan', 50);
 
             $table->timestamps();
+
+            $table
+                ->foreignId('id_unit_parent')
+                ->nullable()
+                ->constrained('ref_unit')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table
                 ->foreignId('created_by')
                 ->constrained('users')
@@ -42,6 +47,6 @@ class CreateUraianPekerjaanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('uraian_pekerjaan');
+        Schema::dropIfExists('ref_unit');
     }
 }

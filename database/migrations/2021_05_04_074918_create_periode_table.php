@@ -20,8 +20,16 @@ class CreatePeriodeTable extends Migration
             $table->date('tanggal_akhir');
 
             $table->timestamps();
-            $table->foreignId('created_by');
-            $table->foreignId('updated_by');
+            $table
+                ->foreignId('created_by')
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table
+                ->foreignId('updated_by')
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
