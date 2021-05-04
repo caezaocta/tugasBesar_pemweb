@@ -11,6 +11,18 @@ class RefJabatan extends Model
 
     protected $table = 'ref_jabatan';
 
+    /**
+     * Many-to-Many relationship dengan UraianPekerjaan.
+     */
+    public function mengerjakanPekerjaan() {
+        return $this->belongsToMany(
+            UraianPekerjaan::class,
+            'uraian_pekerjaan_jabatan',
+            'id_jabatan',
+            'id_uraian_pekerjaan',
+        );
+    }
+
     public function creator() {
         return $this->belongsTo(User::class, 'created_by');
     }
