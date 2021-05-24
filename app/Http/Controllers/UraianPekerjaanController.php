@@ -14,7 +14,11 @@ class UraianPekerjaanController extends Controller
      */
     public function index()
     {
-        return view('components.uraian-pekerjaan.index');
+        $daftar_uraian_pekerjaan = UraianPekerjaan::all();
+
+        return view('components.uraian-pekerjaan.index', [
+            'daftar_uraian_pekerjaan' => $daftar_uraian_pekerjaan
+        ]);
     }
 
     /**
