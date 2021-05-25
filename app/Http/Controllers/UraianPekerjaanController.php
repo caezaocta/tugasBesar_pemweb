@@ -28,7 +28,7 @@ class UraianPekerjaanController extends Controller
      */
     public function create()
     {
-        //
+        return view('components.uraian-pekerjaan.create');
     }
 
     /**
