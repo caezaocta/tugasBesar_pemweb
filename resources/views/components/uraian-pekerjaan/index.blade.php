@@ -4,7 +4,11 @@
 
 @section('content')
     <div class="container">
-        <h1 class="my-4 my-lg-5">Daftar Uraian Pekerjaan</h1>
+        <h1 class="my-4">Daftar Uraian Pekerjaan</h1>
+
+        <div class="my-4">
+            <a class="btn btn-primary" href="{{ route('uraian-pekerjaan.create') }}" role="button">+ Tambah Entry</a>
+        </div>
 
         <table class="table table-striped">
             <thead>
