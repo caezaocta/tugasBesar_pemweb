@@ -21,23 +21,23 @@
             <form method="POST" action="{{ route('uraian-pekerjaan.store') }}">
                 <div class="mb-4">
                     <label for="formInputUraian" class="form-label">Uraian Pekerjaan</label>
-                    <textarea class="form-control col-lg-6" id="formInputUraian" rows="2"></textarea>
+                    <textarea name="uraian" class="form-control col-lg-6" id="formInputUraian" rows="2"></textarea>
                 </div>
 
                 <div class="mb-4">
                     <label for="formInputKeterangan" class="form-label">Keterangan</label>
-                    <textarea class="form-control" id="formInputKeterangan" rows="2"></textarea>
+                    <textarea name="keterangan" class="form-control" id="formInputKeterangan" rows="2"></textarea>
                 </div>
 
                 <div class="row">
                     <div class="col col-lg-3">
                         <label for="formInputPoin" class="form-label">Poin</label>
-                        <input type="number" class="form-control" id="formInputPoin">
+                        <input name="poin" type="number" class="form-control" id="formInputPoin">
                     </div>
 
                     <div class="col col-lg-3">
                         <label for="formInputSatuan" class="form-label">Satuan</label>
-                        <input class="form-control" id="formInputSatuan">
+                        <input name="satuan" class="form-control" id="formInputSatuan">
                     </div>
                 </div>
 
