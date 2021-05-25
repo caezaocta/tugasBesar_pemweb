@@ -114,4 +114,15 @@ return [
 
     'password_timeout' => 10800,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Users
+    |--------------------------------------------------------------------------
+    |
+    | User yang memiliki role sebagai admin pada aplikasi.
+    |
+    */
+
+    'admins' => explode(',', env('APP_ADMINS', 'admin')),
+
 ];
