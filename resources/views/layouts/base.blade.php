@@ -1,11 +1,11 @@
-<!--
+{{--
     Template dasar untuk semua page.
 
     Sudah menggunakan bootstrap dan jquery.
 
     Nanti extends dari template ini saja untuk page yang akan
     dibuat (kecuali auth, karena sudah template bawaan).
--->
+--}}
 
 
 <!DOCTYPE html>
@@ -33,17 +33,17 @@
 </html>
 
 
-<!--
+{{--
     contoh penggunaan (berikan tanda @ sekali saja, tidak perlu dua kali):
 
 
-    @@extends('layouts.base')
+    @extends('layouts.base')
 
-    @@section('title', 'Manajemen Pegawai')
+    @section('title', 'Manajemen Pegawai')
 
-    @@section('content')
+    @section('content')
         <div>
             ...blabla...
         </div>
-    @@endsection
--->
+    @endsection
+--}}
