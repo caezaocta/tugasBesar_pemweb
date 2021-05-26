@@ -124,6 +124,8 @@ class UraianPekerjaanController extends Controller
      */
     public function destroy(UraianPekerjaan $uraianPekerjaan)
     {
-        //
+        $uraianPekerjaan->delete();
+
+        return redirect()->route('uraian-pekerjaan.index');
     }
 }
