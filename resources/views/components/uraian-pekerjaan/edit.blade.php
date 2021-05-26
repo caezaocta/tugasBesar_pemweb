@@ -47,7 +47,7 @@
                     <div class="col col-lg-3">
                         <label for="formInputSatuan" class="form-label">Satuan</label>
                         <input name="satuan" class="form-control" id="formInputSatuan"
-                                value="{{ $uraian_pekerjaan->keterangan }}">
+                                value="{{ $uraian_pekerjaan->satuan }}">
                     </div>
                 </div>
 
