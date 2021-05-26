@@ -19,6 +19,8 @@
 
         <div class="mt-4 container">
             <form method="POST" action="{{ route('uraian-pekerjaan.store') }}">
+                @csrf
+
                 <div class="mb-4">
                     <label for="formInputUraian" class="form-label">Uraian Pekerjaan</label>
                     <textarea name="uraian" class="form-control col-lg-6" id="formInputUraian" rows="2"></textarea>
