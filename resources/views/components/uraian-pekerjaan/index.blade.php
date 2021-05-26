@@ -32,7 +32,8 @@
                                 route('uraian-pekerjaan.edit', [
                                     'uraian_pekerjaan' => $uraian_pekerjaan->id
                                 ])
-                            }}">
+                            }}"
+                            title="Klik untuk mengedit atau menghapus entry ini">
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $uraian_pekerjaan->uraian }}</td>
                         <td>{{ $uraian_pekerjaan->keterangan }}</td>
