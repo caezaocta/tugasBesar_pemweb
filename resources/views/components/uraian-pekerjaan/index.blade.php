@@ -22,7 +22,17 @@
             </thead>
             <tbody>
                 @forelse ($daftar_uraian_pekerjaan as $uraian_pekerjaan)
-                    <tr>
+                    <tr class="table-content" style="cursor: pointer"
+                            {{--
+                                atribut ini diperlukan agar javascript dapat melakukan
+                                redirect ke page yang sesuai dengan entry ketika row
+                                diclick.
+                            --}}
+                            data-edit-url="{{
+                                route('uraian-pekerjaan.edit', [
+                                    'uraian_pekerjaan' => $uraian_pekerjaan->id
+                                ])
+                            }}">
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $uraian_pekerjaan->uraian }}</td>
                         <td>{{ $uraian_pekerjaan->keterangan }}</td>
@@ -39,4 +49,30 @@
             </tbody>
         </table>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        /**
+         * Untuk menimbulkan efek agar row dapat berubah warna ketika
+         * hover, serta redirect ketika diklik.
+         */
+        $('.table-content').each((i, el) => {
+            // Memberikan efek warna ketika hover
+            $(el).hover(
+                () => {
+                    $(el).toggleClass('table-secondary')
+                }
+            )
+
+            // Redirect ketika click row.
+            //
+            // Pada elemen HTML tiap row membutuhkan atribut data-edit-url
+            // yang merupakan url yang menjadi tujuan redirect.
+            $(el).click(() => {
+                const editUrl = $(el).data('edit-url')
+                window.location.href = editUrl
+            })
+        })
+    </script>
 @endsection
