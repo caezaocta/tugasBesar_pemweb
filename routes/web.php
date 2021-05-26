@@ -22,6 +22,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('uraian-pekerjaan', UraianPekerjaanController::class);
+Route::resource('uraian-pekerjaan', UraianPekerjaanController::class)
+        ->except(['show']);
 
 require __DIR__.'/auth.php';
