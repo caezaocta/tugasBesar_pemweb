@@ -11,6 +11,16 @@ class UraianPekerjaan extends Model
 
     protected $table = 'uraian_pekerjaan';
 
+    protected $fillable = [
+        'uraian',
+        'keterangan',
+        'poin',
+        'satuan',
+        'is_active',
+        'created_by',
+        'updated_by',
+    ];
+
     /**
      * Many-to-Many relationship dengan RefJabatan.
      */
