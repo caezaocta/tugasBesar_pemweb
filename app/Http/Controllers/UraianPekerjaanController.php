@@ -84,7 +84,9 @@ class UraianPekerjaanController extends Controller
      */
     public function edit(UraianPekerjaan $uraianPekerjaan)
     {
-        //
+        return view('components.uraian-pekerjaan.edit', [
+            'uraian_pekerjaan' => $uraianPekerjaan
+        ]);
     }
 
     /**
