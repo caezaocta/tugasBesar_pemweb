@@ -62,7 +62,7 @@ class UraianPekerjaanController extends Controller
             'updated_by' => $request->user()->id,
         ]);
 
-        return redirect(route('uraian-pekerjaan.index'));
+        return redirect()->route('uraian-pekerjaan.index');
     }
 
     /**
