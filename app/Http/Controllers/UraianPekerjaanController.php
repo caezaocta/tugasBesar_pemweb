@@ -98,7 +98,22 @@ class UraianPekerjaanController extends Controller
      */
     public function update(Request $request, UraianPekerjaan $uraianPekerjaan)
     {
-        //
+        $validated = $request->validate([
+            'uraian'     => 'required|max:255',
+            'keterangan' => 'required|max:255',
+            'poin'       => 'required|integer',
+            'satuan'     => 'required|max:50',
+        ]);
+
+        $uraianPekerjaan->fill([
+            'uraian' => $validated['uraian'],
+            'keterangan' => $validated['keterangan'],
+            'poin' => $validated['poin'],
+            'satuan' => $validated['satuan'],
+            'updated_by' => $request->user()->id,
+        ])->save();
+
+        return redirect()->route('uraian-pekerjaan.index');
     }
 
     /**
