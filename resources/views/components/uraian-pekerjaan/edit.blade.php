@@ -18,7 +18,7 @@
         </div>
 
         <div class="mt-4 container">
-            <form method="POST" action="{{
+            <form id="update-form" method="POST" action="{{
                         route('uraian-pekerjaan.update', [
                             'uraian_pekerjaan' => $uraian_pekerjaan->id
                         ])
@@ -52,8 +52,39 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary mt-5">Simpan Perubahan</button>
+                {{--
+                    Tombol simpan diletakkan diluar form ini agar posisinya
+                    dapat sejajar dengan tombol hapus
+                --}}
             </form>
+
+            <form id="delete-form" action="POST" action="{{
+                        route('uraian-pekerjaan.destroy', [
+                            'uraian_pekerjaan' => $uraian_pekerjaan->id
+                        ])
+                    }}">
+                @method('DELETE')
+                @csrf
+
+                {{--
+                    Tombol hapus diletakkan diluar form ini agar posisinya
+                    dapat sejajar dengan tombol simpan
+                --}}
+            </form>
+
+            <div class="mt-5">
+                {{--
+                    Tombol simpan dan tombol hapus kedua form di atas
+                --}}
+
+                <button type="submit" class="btn btn-primary me-3" form="update-form">
+                    Simpan Perubahan
+                </button>
+
+                <button type="submit" class="btn btn-danger" form="delete-form">
+                    Hapus Data
+                </button>
+            </div>
         </div>
     </div>
 @endsection
