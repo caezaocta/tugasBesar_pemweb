@@ -58,7 +58,7 @@
                 --}}
             </form>
 
-            <form id="delete-form" action="POST" action="{{
+            <form id="delete-form" method="POST" action="{{
                         route('uraian-pekerjaan.destroy', [
                             'uraian_pekerjaan' => $uraian_pekerjaan->id
                         ])
