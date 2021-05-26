@@ -23,6 +23,7 @@
                             'uraian_pekerjaan' => $uraian_pekerjaan->id
                         ])
                     }}">
+                @method('PATCH')
                 @csrf
 
                 <div class="mb-4">
