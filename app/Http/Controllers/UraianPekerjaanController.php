@@ -45,7 +45,24 @@ class UraianPekerjaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'uraian'     => 'required|max:255',
+            'keterangan' => 'required|max:255',
+            'poin'       => 'required|integer',
+            'satuan'     => 'required|max:50',
+        ]);
+
+        UraianPekerjaan::create([
+            'uraian' => $validated['uraian'],
+            'keterangan' => $validated['keterangan'],
+            'poin' => $validated['poin'],
+            'satuan' => $validated['satuan'],
+            'is_active' => true,
+            'created_by' => $request->user()->id,
+            'updated_by' => $request->user()->id,
+        ]);
+
+        return redirect(route('uraian-pekerjaan.index'));
     }
 
     /**
