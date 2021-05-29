@@ -23,7 +23,7 @@ class CreatePegawaiTable extends Migration
             $table->timestamps();
             $table
                 ->foreignId('id_unit')
-                ->constrained('ref_unit')
+                ->constrained('ref_units')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table
