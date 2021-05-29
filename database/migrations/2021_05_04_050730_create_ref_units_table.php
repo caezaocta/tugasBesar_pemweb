@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRefUnitTable extends Migration
+class CreateRefUnitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRefUnitTable extends Migration
      */
     public function up()
     {
-        Schema::create('ref_unit', function (Blueprint $table) {
+        Schema::create('ref_units', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 50);
             $table->integer('level');
@@ -24,7 +24,7 @@ class CreateRefUnitTable extends Migration
             $table
                 ->foreignId('id_unit_parent')
                 ->nullable()
-                ->constrained('ref_unit')
+                ->constrained('ref_units')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table
@@ -47,6 +47,6 @@ class CreateRefUnitTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ref_unit');
+        Schema::dropIfExists('ref_units');
     }
 }
