@@ -31,4 +31,6 @@ Route::get('/dashboard', function () {
 Route::resource('uraian-pekerjaan', UraianPekerjaanController::class)
         ->except(['show']);
 
+Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index');
+
 require __DIR__.'/auth.php';
