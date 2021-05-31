@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-light px-md-2 px-lg-3 bg-light justify-content-between">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Sistem SKP</a>
 
