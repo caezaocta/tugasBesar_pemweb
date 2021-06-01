@@ -32,6 +32,6 @@ Route::get('/dashboard', function () {
 Route::resource('uraian-pekerjaan', UraianPekerjaanController::class)
         ->except(['show']);
 
-Route::resource('skp-target', SkpRealisasiController::class);
+Route::resource('skp-realisasi', SkpRealisasiController::class);
 
 require __DIR__.'/auth.php';
