@@ -19,7 +19,11 @@ class SkpRealisasiController extends Controller
      */
     public function index()
     {
-        //
+        $daftar_skp_realisasi = SkpRealisasi::all();
+
+        return view('components.skp-realisasi.index', [
+            'daftar_skp_realisasi' => $daftar_skp_realisasi
+        ]);
     }
 
     /**
