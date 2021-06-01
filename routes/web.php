@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SkpRealisasiController;
 use App\Http\Controllers\UraianPekerjaanController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,5 +31,7 @@ Route::get('/dashboard', function () {
 
 Route::resource('uraian-pekerjaan', UraianPekerjaanController::class)
         ->except(['show']);
+
+Route::resource('skp-target', SkpRealisasiController::class);
 
 require __DIR__.'/auth.php';
