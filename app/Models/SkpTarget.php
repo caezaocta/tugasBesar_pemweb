@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\SkpTargetCreated;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +11,15 @@ class SkpTarget extends Model
     use HasFactory;
 
     protected $table = 'skp_target';
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => SkpTargetCreated::class,
+    ];
 
     public function pegawai() {
         return $this->belongsTo(Pegawai::class, 'id_pegawai');
