@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\SkpTarget;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -14,14 +15,16 @@ class SkpTargetCreated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $skp_target;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(SkpTarget $skp_target)
     {
-        //
+        $this->skp_target = $skp_target;
     }
 
     /**
