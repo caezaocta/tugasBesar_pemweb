@@ -22,6 +22,7 @@ Route::get('/', function () {
     return redirect('/dashboard');
 });
 
+
 // Routes Ref Unit
 //
 // (note dari #snaztoz) Mungkin ini bisa dijadiin resource controller aja?
