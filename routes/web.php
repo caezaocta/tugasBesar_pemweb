@@ -18,17 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/refunits', 'App\Http\Controllers\RefUnitsController@index');
-
-Route::get('/refunits/create', 'App\Http\Controllers\RefUnitsController@create');
-
-Route::get('/refunits/{refUnit}', 'App\Http\Controllers\RefUnitsController@show');
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 Route::resource('uraian-pekerjaan', UraianPekerjaanController::class)
         ->except(['show']);
+
+Route::resource('ref-unit', RefUnitsController::class);        
 
 require __DIR__.'/auth.php';
