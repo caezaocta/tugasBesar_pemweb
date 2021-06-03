@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\SkpTargetCreated;
+use App\Models\SkpRealisasi;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -26,6 +27,16 @@ class CreateSkpRealisasi
      */
     public function handle(SkpTargetCreated $event)
     {
-        //
+        SkpRealisasi::create([
+            'id_skp_target' => $event->skp_target->id,
+            'tanggal_awal' => $event->skp_target->getDateCreated(),
+            'tanggal_akhir' => null,
+            'lokasi' => null,
+            'jml_realisasi' => null,
+            'keterangan' => null,
+            'path_bukti' => null,
+            'created_by' => $event->skp_target->created_by,
+            'updated_by' => $event->skp_target->updated_by,
+        ]);
     }
 }
