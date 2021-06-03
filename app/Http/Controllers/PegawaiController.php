@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pegawai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PegawaiController extends Controller
 {
+    /*public function __construct()
+    {
+        $this->middleware('auth');
+    }*/
+    
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +20,9 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        $pegawai = DB::table('pegawai')->get();
-        dump($pegawai);
+        //$pegawai = DB::table('pegawai')->get();
+        $pegawai = Pegawai::all();
+        //dump($pegawai);
         return view('pegawai.index', ['pegawai' => $pegawai]);
     }
 
@@ -26,7 +33,7 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        //
+        return view ('pegawai.create');
     }
 
     /**
@@ -37,7 +44,16 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pegawai = new Pegawai;
+        $pegawai->nama = $request->nama;
+        $pegawai->kode_pegawai = $request->kode_pegawai;
+        $pegawai->alamat = $request->alamat;
+        $pegawai->unit = $request->unit;
+        $pegawai->jabatan = $request->jabatan;
+
+        $pegawai->save();
+
+        return redirect('/pegawai');
     }
 
     /**
@@ -46,9 +62,9 @@ class PegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Pegawai $pegawai)
     {
-        //
+        return view ('pegawai.show', compact('pegawai'));
     }
 
     /**

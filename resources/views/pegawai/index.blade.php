@@ -5,6 +5,8 @@
 <div class="container">
     <h1>Daftar Pegawai</h1>
 
+    <a class="btn btn-success" href="pegawai/create" role="button">Add Data</a>
+
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -12,6 +14,9 @@
                 <th scope="col">Nama</th>
                 <th scope="col">Kode Pegawai</th>
                 <th scope="col">Alamat</th>
+                <th scope="col">Unit</th>
+                <th scope="col">Jabatan</th>
+                <th scope="col">Edit</th>
 
             </tr>
         </thead>
@@ -22,6 +27,9 @@
                 <td>{{ $pgw->nama }}</td>
                 <td>{{ $pgw->kode_pegawai }}</td>
                 <td>{{ $pgw->alamat }}</td>
+                <td>{{ $pgw->unit->nama }}</td>
+                <td>{{ $pgw->jabatan->nama }}</td>
+                <td><a class="btn btn-success" href="pegawai/{{ $pgw->id }}" role="button">Detail</a></td>
             </tr>
             @endforeach
         </tbody>

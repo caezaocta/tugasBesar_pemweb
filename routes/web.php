@@ -33,4 +33,10 @@ Route::resource('uraian-pekerjaan', UraianPekerjaanController::class)
 
 Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index');
 
+Route::get('/pegawai/create', 'App\Http\Controllers\PegawaiController@create');
+
+Route::get('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@show');
+
+Route::post('/pegawai', 'App\Http\Controllers\PegawaiController@store');
+
 require __DIR__.'/auth.php';
