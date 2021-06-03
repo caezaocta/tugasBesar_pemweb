@@ -21,6 +21,12 @@ class SkpTarget extends Model
         'created' => SkpTargetCreated::class,
     ];
 
+    public function getDateCreated() {
+        $created_at = $this->created_at;
+        $date = explode(' ', $created_at)[0];
+        return $date;
+    }
+
     public function pegawai() {
         return $this->belongsTo(Pegawai::class, 'id_pegawai');
     }
