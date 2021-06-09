@@ -48,8 +48,8 @@ class PegawaiController extends Controller
         $pegawai->nama = $request->nama;
         $pegawai->kode_pegawai = $request->kode_pegawai;
         $pegawai->alamat = $request->alamat;
-        $pegawai->unit = $request->unit;
-        $pegawai->jabatan = $request->jabatan;
+        $pegawai->unit->nama = $request->unit->nama;
+        $pegawai->jabatan->nama = $request->jabatan->nama;
 
         $pegawai->save();
 
