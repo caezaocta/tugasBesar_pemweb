@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\SkpRealisasi;
+use App\Models\SkpTarget;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SkpRealisasiController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('pegawai');
     }
 
     /**
@@ -19,7 +22,20 @@ class SkpRealisasiController extends Controller
      */
     public function index()
     {
-        $daftar_skp_realisasi = SkpRealisasi::all();
+        $id_pegawai = Auth::user()
+            ->as_pegawai()
+            ->first()
+            ->id;
+
+        $daftar_skp_realisasi = SkpTarget::all()
+            ->filter(function ($skp_target) use ($id_pegawai) {
+                // Hanya ambil skp_target milik user terkait
+                return $skp_target->id_pegawai == $id_pegawai;
+            })
+            ->map(function ($skp_target) {
+                // Ambil data skp_realisasinya
+                return $skp_target->realisasi()->first();
+            });
 
         return view('components.skp-realisasi.index', [
             'daftar_skp_realisasi' => $daftar_skp_realisasi
