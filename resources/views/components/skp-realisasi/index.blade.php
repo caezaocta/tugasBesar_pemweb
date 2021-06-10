@@ -44,7 +44,13 @@
                         <th scope="row">{{ $skp_realisasi->skp_target->id }}</th>
                         <td>{{ $skp_realisasi->jml_realisasi }}</td>
                         <td>{{ $skp_realisasi->skp_target->jml_target }}</td>
-                        <td>{{ $skp_realisasi->keterangan }}</td>
+                        <td>
+                            @if ($skp_realisasi->keterangan)
+                                {{ $skp_realisasi->keterangan }}
+                            @else
+                                <em class="text-secondary">Belum ada keterangan</em>
+                            @endif
+                        </td>
                     </tr>
 
                 @empty
