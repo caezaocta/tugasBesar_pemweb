@@ -21,7 +21,7 @@ class SkpTarget extends Model
         'created' => SkpTargetCreated::class,
     ];
 
-    public function getDateCreated() {
+    public function get_date_created() {
         $created_at = $this->created_at;
         $date = explode(' ', $created_at)[0];
         return $date;

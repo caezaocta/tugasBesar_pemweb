@@ -29,7 +29,7 @@ class CreateSkpRealisasi
     {
         SkpRealisasi::create([
             'id_skp_target' => $event->skp_target->id,
-            'tanggal_awal' => $event->skp_target->getDateCreated(),
+            'tanggal_awal' => $event->skp_target->get_date_created(),
             'tanggal_akhir' => null,
             'lokasi' => null,
             'jml_realisasi' => 0,
