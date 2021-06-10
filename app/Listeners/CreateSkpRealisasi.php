@@ -32,7 +32,7 @@ class CreateSkpRealisasi
             'tanggal_awal' => $event->skp_target->getDateCreated(),
             'tanggal_akhir' => null,
             'lokasi' => null,
-            'jml_realisasi' => null,
+            'jml_realisasi' => 0,
             'keterangan' => null,
             'path_bukti' => null,
             'created_by' => $event->skp_target->created_by,
