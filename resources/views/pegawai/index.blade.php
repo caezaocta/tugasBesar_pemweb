@@ -7,6 +7,12 @@
 
     <a class="btn btn-success" href="pegawai/create" role="button">Add Data</a>
 
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+
     <table class="table">
         <thead class="thead-dark">
             <tr>

@@ -12,8 +12,14 @@
             <p class="card-text"><b>Jabatan : </b>{{ $pegawai->jabatan->nama}}</p>
             <p class="card-text"><b>Alamat : </b>{{ $pegawai->alamat }}</p>
             
-            <a class="btn btn-primary" href="#" role="button">Edit</a>
-            <a class="btn btn-danger" href="#" role="button">Delete</a>
+            <a  href="{{ $pegawai->id }}/edit" class="btn btn-primary" href="#" role="button">Edit</a>
+
+            <form action="{{ $pegawai->id }}" method="post" class="d-inline">
+                @method('delete')
+                @csrf
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            
             <a href="/pegawai" class="card-link">Back</a>
         </div>
     </div>
