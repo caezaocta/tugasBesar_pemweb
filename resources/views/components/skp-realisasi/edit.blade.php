@@ -34,6 +34,19 @@
                         <p class="col-4">{{ $skp_realisasi->skp_target->id }}</p>
                     </div>
 
+                {{-- Status --}}
+                    <div class="row">
+                        <p class="col-4 col-md-3 col-lg-2">Status</p>
+
+                        <p class="col-4">
+                        @if ($skp_realisasi->is_done())
+                            <span class="badge bg-success">Selesai</span>
+                        @else
+                            <span class="badge bg-danger">Belum selesai</span>
+                        @endif
+                        </p>
+                    </div>
+
                 {{-- Tanggal Mulai --}}
                     <div class="row">
                         <p class="col-4 col-md-3 col-lg-2">Tanggal mulai</p>
