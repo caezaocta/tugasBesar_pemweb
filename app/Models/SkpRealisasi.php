@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\SkpRealisasiUpdating;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,6 +22,15 @@ class SkpRealisasi extends Model
         'path_bukti',
         'created_by',
         'updated_by',
+    ];
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'updating' => SkpRealisasiUpdating::class,
     ];
 
     public function is_done() {
