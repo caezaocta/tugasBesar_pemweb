@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DownloadsController;
+use App\Http\Controllers\SkpRealisasiController;
 use App\Http\Controllers\UraianPekerjaanController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +32,16 @@ Route::get('/dashboard', function () {
 
 Route::resource('uraian-pekerjaan', UraianPekerjaanController::class)
         ->except(['show']);
+
+Route::resource('skp-realisasi', SkpRealisasiController::class)
+        ->only(['index', 'edit', 'update']);
+
+Route::prefix('downloads')->group(function () {
+    Route::get('/bukti-skp-realisasi/{id_skp_realisasi}', [
+        DownloadsController::class,
+        'bukti_skp_realisasi'
+    ])->name('download-bukti-skp-realisasi');
+});
 
 Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index');
 
