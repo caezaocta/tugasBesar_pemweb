@@ -127,15 +127,15 @@
                         </label>
                         <div class="col-6 col-lg-4">
                             @if ($skp_realisasi->path_bukti)
-                                <p>
-                                    <a href="{{ route('download-bukti-skp-realisasi', [
-                                                'id_skp_realisasi' => $skp_realisasi->id
-                                            ])}}">
-                                        Bukti sudah diupload
-                                    </a>
-                                </p>
+                                <span class="badge bg-success">Bukti sudah diupload</span>
+                                <a href="{{ route('download-bukti-skp-realisasi', [
+                                            'id_skp_realisasi' => $skp_realisasi->id
+                                        ])}}"
+                                        class="ms-2">
+                                    Download
+                                </a>
                             @else
-                                <p class="text-danger"><em>Belum ada bukti realisasi</em></p>
+                                <span class="badge bg-danger">Belum ada bukti realisasi</span>
                                 <input type="file" name="bukti" accept="image/*,.pdf,.docx,.doc,.zip" />
 
                                 @error('bukti')
