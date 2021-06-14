@@ -82,7 +82,9 @@ class SkpRealisasiController extends Controller
      */
     public function edit(SkpRealisasi $skpRealisasi)
     {
-        //
+        return view('components.skp-realisasi.edit', [
+            'skp_realisasi' => $skpRealisasi
+        ]);
     }
 
     /**
