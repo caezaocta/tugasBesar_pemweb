@@ -33,7 +33,8 @@ Route::get('/dashboard', function () {
 Route::resource('uraian-pekerjaan', UraianPekerjaanController::class)
         ->except(['show']);
 
-Route::resource('skp-realisasi', SkpRealisasiController::class);
+Route::resource('skp-realisasi', SkpRealisasiController::class)
+        ->only(['index', 'edit', 'update']);
 
 Route::prefix('downloads')->group(function () {
     Route::get('/bukti-skp-realisasi/{id_skp_realisasi}', [
