@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DownloadsController;
 use App\Http\Controllers\SkpRealisasiController;
 use App\Http\Controllers\UraianPekerjaanController;
 use Illuminate\Support\Facades\Route;
@@ -33,5 +34,12 @@ Route::resource('uraian-pekerjaan', UraianPekerjaanController::class)
         ->except(['show']);
 
 Route::resource('skp-realisasi', SkpRealisasiController::class);
+
+Route::prefix('downloads')->group(function () {
+    Route::get('/bukti-skp-realisasi/{id_skp_realisasi}', [
+        DownloadsController::class,
+        'bukti_skp_realisasi'
+    ])->name('download-bukti-skp-realisasi');
+});
 
 require __DIR__.'/auth.php';
