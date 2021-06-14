@@ -11,6 +11,18 @@ class Pegawai extends Model
 
     protected $table = 'pegawai';
 
+    protected $fillable = [
+        'nama',
+        'kode_pegawai',
+        'alamat',
+        'id_user',
+        'id_unit',
+        'id_jabatan',
+        'is_active',
+        'created_by',
+        'updated_by',
+    ];
+
     public function unit() {
         return $this->belongsTo(RefUnit::class, 'id_unit');
     }

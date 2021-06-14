@@ -43,4 +43,18 @@ Route::prefix('downloads')->group(function () {
     ])->name('download-bukti-skp-realisasi');
 });
 
+Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index');
+
+Route::get('/pegawai/create', 'App\Http\Controllers\PegawaiController@create');
+
+Route::get('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@show');
+
+Route::post('/pegawai', 'App\Http\Controllers\PegawaiController@store');
+
+Route::delete('pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@destroy');
+
+Route::get('/pegawai/{pegawai}/edit', 'App\Http\Controllers\PegawaiController@edit');
+
+Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@update');
+
 require __DIR__.'/auth.php';
