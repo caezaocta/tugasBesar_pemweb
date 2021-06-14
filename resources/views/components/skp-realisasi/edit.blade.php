@@ -72,12 +72,18 @@
                             Jumlah realisasi
                         </label>
                         <div class="col-6 col-lg-4">
-                            <input name="jml_realisasi" type="number" id="formInputJumlahRealisasi"
-                                    class="form-control" value="{{ $skp_realisasi->jml_realisasi }}"
-                                    {{-- Jumlah realisasi tidak boleh berkurang --}}
-                                    min="{{ $skp_realisasi->jml_realisasi }}"
-                                    {{-- Jumlah realisasi tidak boleh melebihi target --}}
-                                    max="{{ $skp_realisasi->skp_target->jml_target}}" />
+                            <div class="d-flex align-items-baseline">
+                                <div class="col-6">
+                                    <input name="jml_realisasi" type="number" class="form-control"
+                                            id="formInputJumlahRealisasi"
+                                            value="{{ $skp_realisasi->jml_realisasi }}"
+                                            {{-- Jumlah realisasi tidak boleh berkurang --}}
+                                            min="{{ $skp_realisasi->jml_realisasi }}"
+                                            {{-- Jumlah realisasi tidak boleh melebihi target --}}
+                                            max="{{ $skp_realisasi->skp_target->jml_target}}" />
+                                </div>
+                                <p class="ms-2 mb-0">/ {{ $skp_realisasi->skp_target->jml_target }}</p>
+                            </div>
 
                             @error('jml_realisasi')
                                 <small class="text-danger">{{ $errors->first('jml_realisasi') }}</small>
