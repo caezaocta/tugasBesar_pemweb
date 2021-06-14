@@ -58,9 +58,9 @@
                         </td>
                         <td>
                             @if ($skp_realisasi->is_done())
-                                <span class="text-success">Selesai</span>
+                                <span class="badge bg-success">Selesai</span>
                             @else
-                                <span class="text-danger">Belum selesai</span>
+                                <span class="badge bg-danger">Belum selesai</span>
                             @endif
                         </td>
                     </tr>
