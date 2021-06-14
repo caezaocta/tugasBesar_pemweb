@@ -36,7 +36,7 @@ class SkpRealisasi extends Model
     public function is_done() {
         return
             $this->lokasi
-            && $this->jml_realisasi == $this->skp_target()->jml_target
+            && $this->jml_realisasi == $this->skp_target()->first()->jml_target
             && $this->path_bukti;
     }
 
