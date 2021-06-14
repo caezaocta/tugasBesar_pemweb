@@ -29,6 +29,7 @@
                     <th scope="col">Jumlah Realisasi</th>
                     <th scope="col">Jumlah Target</th>
                     <th scope="col">Keterangan</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,6 +54,13 @@
                                 {{ $skp_realisasi->keterangan }}
                             @else
                                 <em class="text-secondary">Belum ada keterangan</em>
+                            @endif
+                        </td>
+                        <td>
+                            @if ($skp_realisasi->is_done())
+                                <span class="text-success">Selesai</span>
+                            @else
+                                <span class="text-danger">Belum selesai</span>
                             @endif
                         </td>
                     </tr>

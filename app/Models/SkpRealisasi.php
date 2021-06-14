@@ -23,6 +23,13 @@ class SkpRealisasi extends Model
         'updated_by',
     ];
 
+    public function is_done() {
+        return
+            $this->lokasi
+            && $this->jml_realisasi == $this->skp_target()->jml_target
+            && $this->path_bukti;
+    }
+
     public function skp_target() {
         return $this->belongsTo(SkpTarget::class, 'id_skp_target');
     }
