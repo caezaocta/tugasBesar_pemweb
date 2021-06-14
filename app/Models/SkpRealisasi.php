@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Events\SkpRealisasiUpdating;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class SkpRealisasi extends Model
 {
@@ -38,6 +39,12 @@ class SkpRealisasi extends Model
             $this->lokasi
             && $this->jml_realisasi == $this->skp_target()->first()->jml_target
             && $this->path_bukti;
+    }
+
+    public function get_path_bukti() {
+        if ($this->path_bukti) {
+            return Storage::url($this->path_bukti);
+        }
     }
 
     public function skp_target() {

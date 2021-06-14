@@ -115,7 +115,7 @@ class SkpRealisasiController extends Controller
 
         // upload file bukti
         $path_bukti = Storage::putFile('public/bukti', $validated['bukti']);
-        $path_bukti = Storage::url(str_replace('public', '', $path_bukti));
+        $path_bukti = str_replace('public/', '', $path_bukti);
 
         $skpRealisasi->fill([
             'lokasi' => $validated['lokasi'],
