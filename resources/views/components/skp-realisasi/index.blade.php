@@ -39,7 +39,11 @@
                                 redirect ke page yang sesuai dengan entry ketika row
                                 diclick.
                             --}}
-                            data-show-url="#"
+                            data-show-url="{{
+                                route('skp-realisasi.edit', [
+                                    'skp_realisasi' => $skp_realisasi->id
+                                ])
+                            }}"
                             title="Klik untuk melihat detail">
                         <th scope="row">{{ $skp_realisasi->skp_target->id }}</th>
                         <td>{{ $skp_realisasi->jml_realisasi }}</td>
