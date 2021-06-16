@@ -16,7 +16,7 @@ class CreateSkpRealisasiTable extends Migration
         Schema::create('skp_realisasi', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal_awal');
-            $table->date('tanggal_akhir');
+            $table->date('tanggal_akhir'); 
             $table->string('lokasi');
             $table->integer('jml_realisasi');
             $table->string('keterangan', 100);
@@ -24,8 +24,8 @@ class CreateSkpRealisasiTable extends Migration
 
             $table->timestamps();
             $table
-                ->foreignId('id_skp_target')
-                ->constrained('skp_target')
+                ->foreignId('id_skp_targets')
+                ->constrained('skp_targets')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table
