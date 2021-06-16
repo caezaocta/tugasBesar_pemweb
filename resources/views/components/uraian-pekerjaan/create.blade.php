@@ -24,22 +24,38 @@
                 <div class="mb-4">
                     <label for="formInputUraian" class="form-label">Uraian Pekerjaan</label>
                     <textarea name="uraian" class="form-control col-lg-6" id="formInputUraian" rows="2"></textarea>
+
+                    @if ($errors->has('uraian'))
+                        <small class="text-danger">{{ $errors->first('uraian') }}</small>
+                    @endif
                 </div>
 
                 <div class="mb-4">
                     <label for="formInputKeterangan" class="form-label">Keterangan</label>
                     <textarea name="keterangan" class="form-control" id="formInputKeterangan" rows="2"></textarea>
+
+                    @if ($errors->has('keterangan'))
+                        <small class="text-danger">{{ $errors->first('keterangan') }}</small>
+                    @endif
                 </div>
 
                 <div class="row">
                     <div class="col col-lg-3">
                         <label for="formInputPoin" class="form-label">Poin</label>
                         <input name="poin" type="number" class="form-control" id="formInputPoin">
+
+                        @if ($errors->has('poin'))
+                            <small class="text-danger">{{ $errors->first('poin') }}</small>
+                        @endif
                     </div>
 
                     <div class="col col-lg-3">
                         <label for="formInputSatuan" class="form-label">Satuan</label>
                         <input name="satuan" class="form-control" id="formInputSatuan">
+
+                        @if ($errors->has('satuan'))
+                            <small class="text-danger">{{ $errors->first('satuan') }}</small>
+                        @endif
                     </div>
                 </div>
 

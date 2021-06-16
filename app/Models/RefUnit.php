@@ -20,5 +20,6 @@ class RefUnit extends Model
 
     use HasFactory;
 
-    protected $fillable = ['nama', 'level', 'is_active', 'id_unit_parent', 'created_by', 'updated_by'];
+    protected $table = "ref_unit";
+
 }
