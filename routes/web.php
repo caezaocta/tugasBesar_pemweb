@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// routes untuk home
+Route::get('/home', 'App\Http\Controllers\HomeController@index');
+
 // routes untuk refunits
 Route::get('/refunits', 'App\Http\Controllers\RefUnitsController@index'); // menampilkan data table
 Route::get('/refunits/create', 'App\Http\Controllers\RefUnitsController@create'); 
