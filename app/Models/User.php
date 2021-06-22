@@ -44,4 +44,13 @@ class User extends Authenticatable
     public function as_pegawai() {
         return $this->hasOne(Pegawai::class, 'id_user');
     }
+
+    public static function get_admins() {
+        $admins = config('auth.admins');
+
+        return User::all()
+                    ->filter(function ($user) {
+                        return in_array($user->name, $admins);
+                    });
+    }
 }
