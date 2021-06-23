@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RefUnit;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -29,6 +30,8 @@ class LaporanPoinUnit extends Controller
             $date = Carbon::now()->toDateString();
         }
 
+        $daftar_unit = RefUnit::all();
+
         $nama_unit_jumlah_poin = DB::table('ref_units')
             ->join('pegawai', 'pegawai.id_unit', '=', 'ref_units.id')
             ->join('ref_jabatan', 'ref_jabatan.id', '=', 'pegawai.id_jabatan')
@@ -53,6 +56,7 @@ class LaporanPoinUnit extends Controller
         }
 
         return view('components.laporan.poin-unit', [
+            'daftar_unit' => $daftar_unit,
             'daftar_unit_poin' => $nama_unit_jumlah_poin
         ]);
     }
