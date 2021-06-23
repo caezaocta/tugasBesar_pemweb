@@ -51,9 +51,9 @@ class PoinPegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Periode $periode)
+    public function show(SkpRealisasi $skprealisasi)
     {
-        $periode = DB::table('skp_realisasi')
+        $skprealisasi = DB::table('skp_realisasi')
                         ->join('skp_target', 'skp_target.id', '=', 'skp_realisasi.id_skp_target')
                         ->join('pegawai', 'pegawai.id', '=', 'skp_target.id_pegawai')
                         ->join('periode', 'periode.id', '=', 'skp_target.id_periode')
@@ -63,7 +63,7 @@ class PoinPegawaiController extends Controller
                         //->where('periode.tanggal_akhir', '>=', '2021-01-01')
                         ->get();
 
-        return view('laporanPoinPegawai.show', ['periode' => $periode]);
+        return view('laporanPoinPegawai.show', ['skprealisasi' => $skprealisasi]);
     }
 
     /**
