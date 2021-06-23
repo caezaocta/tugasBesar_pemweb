@@ -4,6 +4,7 @@ use App\Http\Controllers\DownloadsController;
 use App\Http\Controllers\LaporanPoinUnit;
 use App\Http\Controllers\SkpRealisasiController;
 use App\Http\Controllers\UraianPekerjaanController;
+use App\Http\Controllers\UraianPekerjaanJabatanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/dashboard');
 });
-
 
 // Routes Ref Unit
 //
@@ -41,9 +41,6 @@ Route::get('/skptargets', 'App\Http\Controllers\SkpTargetsController@index');
 Route::get('/skptargets/create', 'App\Http\Controllers\SkpTargetsController@create');
 Route::get('/skptargets/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@show');
 Route::post('/skptargets', 'App\Http\Controllers\SkpTargetsController@store'); 
-// insert data pegawai
-// Route::get('/skptargets/destroy/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@destroy');
-
 Route::delete('/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@destroy');
 Route::get('/skptargets/{skpTarget}/edit', 'App\Http\Controllers\SkpTargetsController@edit');
 Route::patch('/skptargets/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@update');
