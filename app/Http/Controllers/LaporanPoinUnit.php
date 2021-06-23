@@ -23,7 +23,11 @@ class LaporanPoinUnit extends Controller
     public function __invoke(Request $request)
     {
         $unit = $request->query('unit', null);
-        $date = $request->query('date', Carbon::now()->toDateString());
+
+        $date = $request->query('date');
+        if (!$date) {
+            $date = Carbon::now()->toDateString();
+        }
 
         $nama_unit_jumlah_poin = DB::table('ref_units')
             ->join('pegawai', 'pegawai.id_unit', '=', 'ref_units.id')
