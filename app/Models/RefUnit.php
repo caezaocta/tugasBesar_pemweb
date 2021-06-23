@@ -21,5 +21,4 @@ class RefUnit extends Model
     use HasFactory;
 
     protected $table = "ref_units";
-
 }
