@@ -21,6 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// routes untuk refunits
 Route::get('/refunits', 'App\Http\Controllers\RefUnitsController@index'); // menampilkan data table
 Route::get('/refunits/create', 'App\Http\Controllers\RefUnitsController@create'); 
 Route::get('/refunits/{refUnit}', 'App\Http\Controllers\RefUnitsController@show'); // menampilkan detail data dari table berdasarkan id pegawai
@@ -33,8 +34,11 @@ Route::patch('/refunits/{refUnit}', 'App\Http\Controllers\RefUnitsController@upd
 Route::get('/skptargets', 'App\Http\Controllers\SkpTargetsController@index');
 Route::get('/skptargets/create', 'App\Http\Controllers\SkpTargetsController@create');
 Route::get('/skptargets/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@show');
-Route::post('/skptargets', 'App\Http\Controllers\SkpTargetsController@store'); // insert data pegawai
-Route::delete('/skptargets/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@destroy');
+Route::post('/skptargets', 'App\Http\Controllers\SkpTargetsController@store'); 
+// insert data pegawai
+// Route::get('/skptargets/destroy/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@destroy');
+
+Route::delete('/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@destroy');
 Route::get('/skptargets/{skpTarget}/edit', 'App\Http\Controllers\SkpTargetsController@edit');
 Route::patch('/skptargets/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@update');
 
