@@ -29,14 +29,18 @@
                         </label>
                         <select id="data-filter-unit" name="unit" class="form-select">
                             @foreach ($daftar_unit as $unit)
-                                <option value="{{ $unit->nama }}">{{ $unit->nama }}</option>
+                                <option value="{{ $unit->nama }}"
+                                        @if ($unit->nama === $displayed_unit) selected @endif>
+                                    {{ $unit->nama }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-9 mb-3">
                         <label class="form-label" for="data-filter-date">Pada tanggal:</label>
                         <input id="data-filter-date" name="date" type="date"
-                                class="form-control" placeholder="Tanggal">
+                                class="form-control" placeholder="Tanggal"
+                                value="{{ $date }}">
                     </div>
                     <input type="submit" value="Filter" class="btn btn-primary">
                 </div>

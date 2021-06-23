@@ -57,7 +57,9 @@ class LaporanPoinUnit extends Controller
 
         return view('components.laporan.poin-unit', [
             'daftar_unit' => $daftar_unit,
-            'daftar_unit_poin' => $nama_unit_jumlah_poin
+            'daftar_unit_poin' => $nama_unit_jumlah_poin,
+            'displayed_unit' => $unit,
+            'date' => $date,
         ]);
     }
 }
