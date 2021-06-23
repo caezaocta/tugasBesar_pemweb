@@ -21,7 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// routes untuk refunits
 Route::get('/refunits', 'App\Http\Controllers\RefUnitsController@index'); // menampilkan data table
 Route::get('/refunits/create', 'App\Http\Controllers\RefUnitsController@create'); 
 Route::get('/refunits/{refUnit}', 'App\Http\Controllers\RefUnitsController@show'); // menampilkan detail data dari table berdasarkan id pegawai
@@ -29,8 +28,6 @@ Route::post('/refunits', 'App\Http\Controllers\RefUnitsController@store'); // in
 Route::delete('/refunits/{refUnit}', 'App\Http\Controllers\RefUnitsController@destroy'); // hapus data pegawai
 Route::get('/refunits/{refUnit}/edit', 'App\Http\Controllers\RefUnitsController@edit'); // edit data pegawai
 Route::patch('/refunits/{refUnit}', 'App\Http\Controllers\RefUnitsController@update'); // menangkap data lama dan baru
-
-// Route::resource('refunits', 'App\Http\Controllers\RefUnitsController');
 
 // routes untuk skptargets
 Route::get('/skptargets', 'App\Http\Controllers\SkpTargetsController@index');
@@ -40,6 +37,9 @@ Route::post('/skptargets', 'App\Http\Controllers\SkpTargetsController@store'); /
 Route::delete('/skptargets/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@destroy');
 Route::get('/skptargets/{skpTarget}/edit', 'App\Http\Controllers\SkpTargetsController@edit');
 Route::patch('/skptargets/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@update');
+
+// routes untuk daftar pegawai dan poin dalam jumlah tertentu
+// Route::get('/perolehanpoin', 'App\Http\Controllers\SkpTargetsController@index');
  
 
 Route::get('/dashboard', function () {
