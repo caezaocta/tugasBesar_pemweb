@@ -11,6 +11,14 @@ class Periode extends Model
 
     protected $table = 'periode';
 
+    protected $fillable = [
+        'nama',
+        'tanggal_awal',
+        'tanggal_akhir',
+        'created_by',
+        'updated_by',
+    ];
+
     public function creator() {
         return $this->belongsTo(User::class, 'created_by');
     }

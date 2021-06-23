@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSkpTargetTable extends Migration
+class CreateSkpTargetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSkpTargetTable extends Migration
      */
     public function up()
     {
-        Schema::create('skp_target', function (Blueprint $table) {
+        Schema::create('skp_targets', function (Blueprint $table) {
             $table->id();
             $table->integer('jml_target');
 
@@ -53,6 +53,6 @@ class CreateSkpTargetTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('skp_target');
+        Schema::dropIfExists('skp_targets');
     }
 }

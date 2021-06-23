@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\SkpRealisasiUpdating;
+use App\Events\SkpTargetCreated;
+use App\Listeners\CheckSkpRealisasiIsCompleted;
+use App\Listeners\CreateSkpRealisasi;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -17,6 +21,14 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ],
+
+        SkpRealisasiUpdating::class => [
+            CheckSkpRealisasiIsCompleted::class
+        ],
+
+        SkpTargetCreated::class => [
+            CreateSkpRealisasi::class
         ],
     ];
 

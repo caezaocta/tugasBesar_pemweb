@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class RefUnitsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -27,6 +32,8 @@ class RefUnitsController extends Controller
     public function create()
     {
         //
+        return view('refUnits.create');
+        
     }
 
     /**
@@ -37,13 +44,24 @@ class RefUnitsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // method untuk validasi form
+        $request->validate ([
+            'nama' => 'required',
+            'level' => 'required',
+            'id_unit_parent' => 'nullable|exists:ref_units,id'
+        ]);
+        
+
+        RefUnit::create(array_merge($request->all(), [
+            'created_by' => $request -> user() -> id,
+            // 'id_unit_parent' => $request -> user() -> id,
+            'updated_by' => $request -> user() -> id,
+            'is_active' => true,
+         ]));
+
+        return redirect('/refunits')->with('status', 'Data berhasil ditambahkan!');
     }
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Display the specified resource.
@@ -68,6 +86,7 @@ class RefUnitsController extends Controller
     public function edit(RefUnit $refUnit)
     {
         //
+        return view('refUnits.edit', compact('refUnit'));
     }
 
     /**
@@ -80,6 +99,20 @@ class RefUnitsController extends Controller
     public function update(Request $request, RefUnit $refUnit)
     {
         //
+        $request->validate ([
+            'nama' => 'required',
+            'level' => 'required',
+            'id_unit_parent' => 'nullable|exists:ref_units,id'
+        ]);
+        
+        RefUnit::where('id', $refUnit->id)
+            ->update([
+                'nama' => $request->nama,
+                'level' => $request->level,
+                'id_unit_parent' => $request->id_unit_parent
+            ]);
+
+            return redirect('/refunits')->with('status', 'Data berhasil diubah!');
     }
 
     /**
@@ -91,5 +124,7 @@ class RefUnitsController extends Controller
     public function destroy(RefUnit $refUnit)
     {
         //
+        RefUnit::destroy($refUnit->id);
+        return redirect('/refunits')->with('status', 'Data berhasil dihapus!');
     }
 }
