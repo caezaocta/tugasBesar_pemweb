@@ -21,7 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// routes untuk refunits
+
+// Routes Ref Unit
+//
+// (note dari #snaztoz) Mungkin ini bisa dijadiin resource controller aja?
 Route::get('/refunits', 'App\Http\Controllers\RefUnitsController@index'); // menampilkan data table
 Route::get('/refunits/create', 'App\Http\Controllers\RefUnitsController@create'); 
 Route::get('/refunits/{refUnit}', 'App\Http\Controllers\RefUnitsController@show'); // menampilkan detail data dari table berdasarkan id pegawai
@@ -30,7 +33,9 @@ Route::delete('/refunits/{refUnit}', 'App\Http\Controllers\RefUnitsController@de
 Route::get('/refunits/{refUnit}/edit', 'App\Http\Controllers\RefUnitsController@edit'); // edit data pegawai
 Route::patch('/refunits/{refUnit}', 'App\Http\Controllers\RefUnitsController@update'); // menangkap data lama dan baru
 
-// routes untuk skptargets
+// Routes SKP Target
+//
+// (note dari #snaztoz) Mungkin ini bisa dijadiin resource controller aja?
 Route::get('/skptargets', 'App\Http\Controllers\SkpTargetsController@index');
 Route::get('/skptargets/create', 'App\Http\Controllers\SkpTargetsController@create');
 Route::get('/skptargets/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@show');
@@ -69,18 +74,15 @@ Route::prefix('laporan')->group(function () {
             ->name('perolehan-poin-tiap-unit');
 });
 
+// Routes pegawai
+//
+// (note dari #snaztoz) Mungkin ini bisa dijadiin resource controller aja?
 Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index');
-
 Route::get('/pegawai/create', 'App\Http\Controllers\PegawaiController@create');
-
 Route::get('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@show');
-
 Route::post('/pegawai', 'App\Http\Controllers\PegawaiController@store');
-
 Route::delete('pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@destroy');
-
 Route::get('/pegawai/{pegawai}/edit', 'App\Http\Controllers\PegawaiController@edit');
-
 Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@update');
 
 require __DIR__.'/auth.php';
