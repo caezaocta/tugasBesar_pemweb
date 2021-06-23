@@ -33,6 +33,7 @@ Route::delete('/refunits/{refUnit}', 'App\Http\Controllers\RefUnitsController@de
 Route::get('/refunits/{refUnit}/edit', 'App\Http\Controllers\RefUnitsController@edit'); // edit data pegawai
 Route::patch('/refunits/{refUnit}', 'App\Http\Controllers\RefUnitsController@update'); // menangkap data lama dan baru
 
+
 // Routes SKP Target
 //
 // (note dari #snaztoz) Mungkin ini bisa dijadiin resource controller aja?
@@ -47,6 +48,7 @@ Route::delete('/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@destroy
 Route::get('/skptargets/{skpTarget}/edit', 'App\Http\Controllers\SkpTargetsController@edit');
 Route::patch('/skptargets/{skpTarget}', 'App\Http\Controllers\SkpTargetsController@update');
 
+
 // routes untuk daftar pegawai dan poin dalam jumlah tertentu
 // Route::get('/perolehanpoin', 'App\Http\Controllers\SkpTargetsController@index');
  
@@ -55,24 +57,30 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
 Route::resource('uraian-pekerjaan', UraianPekerjaanController::class)
         ->except(['show']);
+
 
 Route::resource('skp-realisasi', SkpRealisasiController::class)
         ->only(['index', 'edit', 'update']);
 
+
 Route::prefix('downloads')->group(function () {
+
     Route::get('/bukti-skp-realisasi/{id_skp_realisasi}', [
         DownloadsController::class,
         'bukti_skp_realisasi'
     ])->name('download-bukti-skp-realisasi');
 });
 
+
 Route::prefix('laporan')->group(function () {
 
     Route::get('/perolehan-poin-tiap-unit', LaporanPoinUnit::class)
             ->name('perolehan-poin-tiap-unit');
 });
+
 
 // Routes pegawai
 //
@@ -84,5 +92,6 @@ Route::post('/pegawai', 'App\Http\Controllers\PegawaiController@store');
 Route::delete('pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@destroy');
 Route::get('/pegawai/{pegawai}/edit', 'App\Http\Controllers\PegawaiController@edit');
 Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@update');
+
 
 require __DIR__.'/auth.php';
