@@ -49,7 +49,7 @@ class User extends Authenticatable
         $admins = config('auth.admins');
 
         return User::all()
-                    ->filter(function ($user) {
+                    ->filter(function ($user) use ($admins) {
                         return in_array($user->name, $admins);
                     });
     }
