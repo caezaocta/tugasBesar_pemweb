@@ -29,6 +29,18 @@
         </main>
 
         @yield('scripts')
+        <script>
+            /**
+             * Logout dilakukan dengan cara melakukan submit form.
+             *
+             * Hal ini diperlukan karena URL yang digunakan untuk melakukan
+             * logout membutuhkan method POST.
+             */
+            $('.logout-btn').click(event => {
+                event.preventDefault()
+                $('#logout-form').submit()
+            })
+        </script>
     </body>
 </html>
 

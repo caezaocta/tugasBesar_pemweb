@@ -1,14 +1,65 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-light px-md-2 px-lg-3 bg-light justify-content-between">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Sistem SKP</a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="/home">Sistem SKP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Menu
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Pegawai</a></li>
+                        <li><a class="dropdown-item" href="/refunits">Ref Unit</a></li>
+                        <li><a class="dropdown-item" href="#">Ref Jabatan</a></li>
+                        <li><a class="dropdown-item" href="/uraian-pekerjaan">Uraian Pekerjaan</a></li>
+                        <li><a class="dropdown-item" href="#">Uraian Pekerjaan Jabatan</a></li>
+                        <li><a class="dropdown-item" href="#">Periode</a></li>
+                        <li><a class="dropdown-item" href="/skptargets">Skp Target</a></li>
+                        <li><a class="dropdown-item" href="#">Skp Realisasi</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Nanti ini diganti</a>
+                @if (Auth::check())
+                    {{-- Hidden logout form --}}
+                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        {{-- biarkan kosong --}}
+                    </form>
+
+                    {{-- Versi layar kecil --}}
+                    <div class="d-lg-none">
+                        <a class="nav-link disabled" href="#">{{ Auth::user()->name }}</a>
+                        <a class="nav-link logout-btn" href="#">Logout</a>
+                    </div>
+
+                    {{-- Versi layar besar --}}
+                    <div class="dropdown d-none d-lg-block">
+                        <p class="dropdown-toggle m-0" id="user-dropdown" data-bs-toggle="dropdown"
+                                aria-expanded="false" role="button">
+                            {{ Auth::user()->name }}
+                        </p>
+
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="user-dropdown">
+                            <li><a class="nav-link logout-btn" href="#">Logout</a></li>
+                        </ul>
+                    </div>
+
+                @else
+                    <a class="nav-link" aria-current="page" href="{{ route('login') }}">
+                        Login
+                    </a>
+
+                @endif
             </div>
         </div>
     </div>

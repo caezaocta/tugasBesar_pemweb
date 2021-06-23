@@ -40,4 +40,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function as_pegawai() {
+        return $this->hasOne(Pegawai::class, 'id_user');
+    }
+
+    public static function get_admins() {
+        $admins = config('auth.admins');
+
+        return User::all()
+                    ->filter(function ($user) use ($admins) {
+                        return in_array($user->name, $admins);
+                    });
+    }
 }
