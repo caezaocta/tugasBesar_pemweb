@@ -34,32 +34,41 @@
 
         <div class="form-group">
             <label for="InputUser">User</label>
-            <select id="idUser" class="form-control" name="user">
+            <select id="idUser" class="form-control @error('user') is-invalid @enderror" name="user">
                 <option value="">Silahkan Pilih User yang Sesuai</option>
                 @foreach ($users as $usr)
                 <option value="{{$usr->id}}">{{$usr->name}}</option>
                 @endforeach
             </select>
+            @error('user')
+                <div class="invalid-feedback">{{$message}}</div>
+            @enderror
         </div>
 
         <div class="form-group">
             <label for="InputUnit">Unit</label>
-            <select id="idUnit" class="form-control" name="unit">
+            <select id="idUnit" class="form-control @error('unit') is-invalid @enderror" name="unit">
                 <option value="">Silahkan Pilih Unit yang Sesuai</option>
                 @foreach ($ref_unit as $ru)
                 <option value="{{$ru->id}}">{{$ru->nama}}</option>
                 @endforeach
             </select>
+            @error('unit')
+                <div class="invalid-feedback">{{$message}}</div>
+            @enderror
         </div>
 
         <div class="form-group">
             <label for="InputJabatan">Jabatan</label>
-            <select id="idJabatan" class="form-control" name="jabatan">
+            <select id="idJabatan" class="form-control @error('jabatan') is-invalid @enderror" name="jabatan">
                 <option value="" disabled selected>Silahkan Pilih Jabatan yang Sesuai</option>
                 @foreach ($ref_jabatan as $rj)
                 <option value="{{$rj->id}}">{{$rj->nama}}</option>
                 @endforeach
             </select>
+            @error('unit')
+                <div class="invalid-feedback">{{$message}}</div>
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-primary">Add</button>

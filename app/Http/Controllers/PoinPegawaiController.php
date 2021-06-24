@@ -51,7 +51,7 @@ class PoinPegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(SkpRealisasi $skprealisasi)
+    public function show(Periode $periode, SkpRealisasi $skprealisasi)
     {
         $skprealisasi = DB::table('skp_realisasi')
                         ->join('skp_target', 'skp_target.id', '=', 'skp_realisasi.id_skp_target')
@@ -59,8 +59,8 @@ class PoinPegawaiController extends Controller
                         ->join('periode', 'periode.id', '=', 'skp_target.id_periode')
                         ->join('uraian_pekerjaan_jabatan', 'uraian_pekerjaan_jabatan.id', '=', 'skp_target.id_uraian_pekerjaan_jabatan')
                         ->join('uraian_pekerjaan', 'uraian_pekerjaan.id', '=', 'uraian_pekerjaan_jabatan.id_uraian_pekerjaan')
-                        ->select('pegawai.id', 'pegawai.nama', 'pegawai.kode_pegawai', 'periode.tanggal_awal', 'periode.tanggal_akhir', 'uraian_pekerjaan.poin')
-                        //->where('periode.tanggal_akhir', '>=', '2021-01-01')
+                        ->select('pegawai.id', 'pegawai.nama', 'pegawai.kode_pegawai', 'periode.id', 'skp_realisasi.jml_realisasi')
+                        ->where('periode.id', '=', $periode->id)
                         ->get();
 
         return view('laporanPoinPegawai.show', ['skprealisasi' => $skprealisasi]);

@@ -17,12 +17,12 @@
         </thead>
 
         <tbody>
-            @foreach($periode as $prd)
+            @foreach($skprealisasi as $real)
             <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
-                <td>{{ $prd->nama }}</td>
-                <td>{{ $prd->kode_pegawai }}</td>
-                <td>{{ $prd->skp_realisasi->jml_realisasi }}</td>
+                <td>{{ $real->nama }}</td>
+                <td>{{ $real->kode_pegawai }}</td>
+                <td>{{ $real->jml_realisasi }}</td>
             </tr>
             @endforeach
         </tbody>

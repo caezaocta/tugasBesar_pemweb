@@ -13,7 +13,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Periode</th>
                     <th scope="col">Tanggal Awal</th>
-                    <th scope="col">Tanggl Akhir</th>
+                    <th scope="col">Tanggal Akhir</th>
                     <th scope="col">Laporan</th>
                 </tr>
         </thead>
