@@ -24,35 +24,30 @@
                 <div class="mb-4">
                     <div class="mb-4">
                         <label for="formInputUraian" class="form-label">Jabatan</label>
-                        <div class="input-group mb-3">
-                            </div>
-                            <select name="id_jabatan" class="font-control" id="inputGroupSelect01">
-                            @foreach ($ref_jabatan as $jabatan)
-                            <option value="{{ $jabatan->id }}">
-                                {{ $jabatan->nama }}
-                           </option>
-                            @endforeach
+                        <div class="col-lg-6 mb-3">
+                            <select name="id_jabatan" class="form-select" id="inputGroupSelect01">
+                                @foreach ($ref_jabatan as $jabatan)
+                                    <option value="{{ $jabatan->id }}">
+                                        {{ $jabatan->nama }}
+                                    </option>
+                                @endforeach
                             </select>
-                          </div>
+                        </div>
 
                         <label for="formInputUraian" class="form-label">Pekerjaan</label>
-                        <div class="input-group mb-3">
-                             </div>
-                             <select name="id_uraian_pekerjaan" class="font-control" id="inputGroupSelect01">
-                             @foreach ($uraian_pekerjaan as $up)
-                             <option value="{{ $up->id }}">
-                              {{ $up->uraian }}
-                          </option>
-                            @endforeach
-                          </select>
+                        <div class="col-lg-6 mb-3">
+                            <select name="id_uraian_pekerjaan" class="form-select" id="inputGroupSelect01">
+                                @foreach ($uraian_pekerjaan as $up)
+                                    <option value="{{ $up->id }}">
+                                        {{ $up->uraian }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
+                    </div>
                 </div>
 
-                <div class="row">
-                
-
-
-
+                <input type="submit" class="btn btn-primary" value="Simpan" />
             </form>
         </div>
     </div>
