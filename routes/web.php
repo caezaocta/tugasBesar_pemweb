@@ -5,6 +5,7 @@ use App\Http\Controllers\LaporanPoinUnit;
 use App\Http\Controllers\SkpRealisasiController;
 use App\Http\Controllers\UraianPekerjaanController;
 use App\Http\Controllers\RefUnitsController;
+use App\Http\Controllers\RefJabatanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,5 +80,7 @@ Route::delete('pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@destr
 Route::get('/pegawai/{pegawai}/edit', 'App\Http\Controllers\PegawaiController@edit');
 
 Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@update');
+
+Route::resource('ref-jabatan', RefJabatanController::class);
 
 require __DIR__.'/auth.php';
