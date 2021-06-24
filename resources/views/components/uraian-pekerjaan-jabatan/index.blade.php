@@ -22,7 +22,7 @@
             </thead>
             <tbody>
                 @forelse ($daftar_uraian_pekerjaan_jabatan as $uraian_pekerjaan_jabatan)
-                    <tr class="table-content"> 
+                    <tr class="table-content align-middle"> 
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $uraian_pekerjaan_jabatan->nama }}</td>
                         <td>{{ $uraian_pekerjaan_jabatan->uraian }}</td>
@@ -32,10 +32,13 @@
                                     'uraian_pekerjaan_jabatan' => $uraian_pekerjaan_jabatan->id
                                 ])
                             }}">
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit" class="btn btn-danger" form="delete-form" >Delete</button>
-                    </form> </td>
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger" form="delete-form">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 @empty
                     <tr>
