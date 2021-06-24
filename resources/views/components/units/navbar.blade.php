@@ -20,6 +20,11 @@
                         <li><a class="dropdown-item" href="#">Manajemen Jabatan</a></li>
                         <li><a class="dropdown-item" href="/uraian-pekerjaan">Manajemen Uraian Pekerjaan</a></li>
                         <li><a class="dropdown-item" href="/uraian-pekerjaan-jabatan">Manajemen Uraian Pekerjaan per Jabatan</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('perolehan-poin-tiap-unit') }}">
+                                Laporan Poin tiap Unit
+                            </a>
+                        </li>
                     @endif
 
                         <li><a class="dropdown-item" href="/skptargets">Manajemen Target SKP</a></li>
