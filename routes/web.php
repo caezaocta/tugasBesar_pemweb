@@ -103,4 +103,7 @@ Route::get('/laporanPoinPegawai', 'App\Http\Controllers\PoinPegawaiController@in
 
 Route::get('/laporanPoinPegawai/{periode}', 'App\Http\Controllers\PoinPegawaiController@show');
 
-require __DIR__.'/auth.php';
+Route::prefix('/user')->group(function () {
+
+    require __DIR__.'/auth.php';
+});
