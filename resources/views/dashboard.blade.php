@@ -13,20 +13,22 @@
 
                     <div class="mt-3 p-5">
                         @php
-                            $menus = [
-                                ['nama' => 'Manajemen Target SKP', 'url' => '/skptargets'],
-                                ['nama' => 'Manajemen Realisasi SKP', 'url' => '/skp-realisasi'],
-                            ];
+                            $menus = [];
 
                             if (Auth::user()->is_admin()) {
-                                $menus = array_merge($menus, [
+                                $menus = [
                                     ['nama' => 'Manajemen Pegawai', 'url' => '/pegawai'],
                                     ['nama' => 'Manajemen Unit', 'url' => '/refunits'],
                                     ['nama' => 'Manajemen Jabatan', 'url' => '#'],
                                     ['nama' => 'Manajemen Uraian Pekerjaan', 'url' => '/uraian-pekerjaan'],
                                     ['nama' => 'Manajemen Uraian Pekerjaan per Jabatan', 'url' => '/uraian-pekerjaan-jabatan'],
                                     ['nama' => 'Laporan Poin tiap Unit', 'url' => route('perolehan-poin-tiap-unit')],
-                                ]);
+                                ];
+                            } else {
+                                $menus = [
+                                    ['nama' => 'Manajemen Target SKP', 'url' => '/skptargets'],
+                                    ['nama' => 'Manajemen Realisasi SKP', 'url' => '/skp-realisasi'],
+                                ];
                             }
                         @endphp
 

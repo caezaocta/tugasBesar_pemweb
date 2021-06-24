@@ -13,22 +13,25 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Menu
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    @if (Auth::user()->is_admin())
-                        <li><a class="dropdown-item" href="/pegawai">Manajemen Pegawai</a></li>
-                        <li><a class="dropdown-item" href="/refunits">Manajemen Unit</a></li>
-                        <li><a class="dropdown-item" href="#">Manajemen Jabatan</a></li>
-                        <li><a class="dropdown-item" href="/uraian-pekerjaan">Manajemen Uraian Pekerjaan</a></li>
-                        <li><a class="dropdown-item" href="/uraian-pekerjaan-jabatan">Manajemen Uraian Pekerjaan per Jabatan</a></li>
-                        <li>
-                            <a class="dropdown-item" href="{{ route('perolehan-poin-tiap-unit') }}">
-                                Laporan Poin tiap Unit
-                            </a>
-                        </li>
-                    @endif
 
-                        <li><a class="dropdown-item" href="/skptargets">Manajemen Target SKP</a></li>
-                        <li><a class="dropdown-item" href="/skp-realisasi">Manajemen Realisasi SKP</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        @if (Auth::user()->is_admin())
+                            <li><a class="dropdown-item" href="/pegawai">Manajemen Pegawai</a></li>
+                            <li><a class="dropdown-item" href="/refunits">Manajemen Unit</a></li>
+                            <li><a class="dropdown-item" href="#">Manajemen Jabatan</a></li>
+                            <li><a class="dropdown-item" href="/uraian-pekerjaan">Manajemen Uraian Pekerjaan</a></li>
+                            <li><a class="dropdown-item" href="/uraian-pekerjaan-jabatan">Manajemen Uraian Pekerjaan per Jabatan</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('perolehan-poin-tiap-unit') }}">
+                                    Laporan Poin tiap Unit
+                                </a>
+                            </li>
+
+                        @else
+                            <li><a class="dropdown-item" href="/skptargets">Manajemen Target SKP</a></li>
+                            <li><a class="dropdown-item" href="/skp-realisasi">Manajemen Realisasi SKP</a></li>
+
+                        @endif
                     </ul>
                 </li>
             </ul>
