@@ -23,6 +23,7 @@
                                     ['nama' => 'Manajemen Uraian Pekerjaan', 'url' => '/uraian-pekerjaan'],
                                     ['nama' => 'Manajemen Uraian Pekerjaan per Jabatan', 'url' => '/uraian-pekerjaan-jabatan'],
                                     ['nama' => 'Laporan Poin tiap Unit', 'url' => route('perolehan-poin-tiap-unit')],
+                                    ['nama' => 'Laporan Poin Pegawai', 'url' => '/laporanPoinPegawai'],
                                 ];
                             } else {
                                 $menus = [

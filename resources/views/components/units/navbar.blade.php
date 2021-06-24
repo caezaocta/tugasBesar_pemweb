@@ -26,6 +26,11 @@
                                     Laporan Poin tiap Unit
                                 </a>
                             </li>
+                            <li>
+                                <a class="dropdown-item" href="/laporanPoinPegawai">
+                                    Laporan Poin Pegawai
+                                </a>
+                            </li>
 
                         @else
                             <li><a class="dropdown-item" href="/skptargets">Manajemen Target SKP</a></li>
