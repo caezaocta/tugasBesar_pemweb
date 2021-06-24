@@ -63,6 +63,10 @@ Route::resource('skp-realisasi', SkpRealisasiController::class)
         ->only(['index', 'edit', 'update']);
 
 
+Route::resource('uraian-pekerjaan-jabatan', UraianPekerjaanJabatanController::class)
+        ->except(['show']);
+
+
 Route::prefix('downloads')->group(function () {
 
     Route::get('/bukti-skp-realisasi/{id_skp_realisasi}', [
