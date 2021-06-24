@@ -99,5 +99,8 @@ Route::delete('pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@destr
 Route::get('/pegawai/{pegawai}/edit', 'App\Http\Controllers\PegawaiController@edit');
 Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@update');
 
+Route::get('/laporanPoinPegawai', 'App\Http\Controllers\PoinPegawaiController@index');
+
+Route::get('/laporanPoinPegawai/{periode}', 'App\Http\Controllers\PoinPegawaiController@show');
 
 require __DIR__.'/auth.php';

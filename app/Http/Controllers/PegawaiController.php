@@ -48,15 +48,16 @@ class PegawaiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    { 
         $request->validate([
             'nama' => 'required',
             'kode_pegawai' => 'required',
             'alamat' => 'required',
-            'id_user' => 'required',
-            'id_unit' => 'required',
-            'id_jabatan' => 'required', 
+            'user' => 'required',
+            'unit' => 'required',
+            'jabatan' => 'required',
         ]);
+        error_log('masuk');
 
         Pegawai::create([
             'nama' => $request->nama,
@@ -69,7 +70,7 @@ class PegawaiController extends Controller
             'created_by' => $request->user()->id,
             'updated_by' => $request->user()->id,
         ]);
-
+        
         return redirect('/pegawai')->with('status', 'Data Pegawai Berhasil Ditambahkan!');
     }
 
