@@ -14,14 +14,16 @@
                         Menu
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Pegawai</a></li>
-                        <li><a class="dropdown-item" href="/refunits">Ref Unit</a></li>
-                        <li><a class="dropdown-item" href="#">Ref Jabatan</a></li>
-                        <li><a class="dropdown-item" href="/uraian-pekerjaan">Uraian Pekerjaan</a></li>
-                        <li><a class="dropdown-item" href="#">Uraian Pekerjaan Jabatan</a></li>
-                        <li><a class="dropdown-item" href="#">Periode</a></li>
-                        <li><a class="dropdown-item" href="/skptargets">Skp Target</a></li>
-                        <li><a class="dropdown-item" href="#">Skp Realisasi</a></li>
+                    @if (Auth::user()->is_admin())
+                        <li><a class="dropdown-item" href="/pegawai">Manajemen Pegawai</a></li>
+                        <li><a class="dropdown-item" href="/refunits">Manajemen Unit</a></li>
+                        <li><a class="dropdown-item" href="#">Manajemen Jabatan</a></li>
+                        <li><a class="dropdown-item" href="/uraian-pekerjaan">Manajemen Uraian Pekerjaan</a></li>
+                        <li><a class="dropdown-item" href="/uraian-pekerjaan-jabatan">Manajemen Uraian Pekerjaan per Jabatan</a></li>
+                    @endif
+
+                        <li><a class="dropdown-item" href="/skptargets">Manajemen Target SKP</a></li>
+                        <li><a class="dropdown-item" href="/skp-realisasi">Manajemen Realisasi SKP</a></li>
                     </ul>
                 </li>
             </ul>
