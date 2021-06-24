@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light px-md-2 px-lg-3 bg-light justify-content-between">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/home">Sistem SKP</a>
+        <a class="navbar-brand" href="{{ route('dashboard') }}">Sistem SKP</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -18,7 +18,7 @@
                         @if (Auth::user()->is_admin())
                             <li><a class="dropdown-item" href="/pegawai">Manajemen Pegawai</a></li>
                             <li><a class="dropdown-item" href="/refunits">Manajemen Unit</a></li>
-                            <li><a class="dropdown-item" href="#">Manajemen Jabatan</a></li>
+                            <li><a class="dropdown-item" href="/ref-jabatan">Manajemen Jabatan</a></li>
                             <li><a class="dropdown-item" href="/uraian-pekerjaan">Manajemen Uraian Pekerjaan</a></li>
                             <li><a class="dropdown-item" href="/uraian-pekerjaan-jabatan">Manajemen Uraian Pekerjaan per Jabatan</a></li>
                             <li>

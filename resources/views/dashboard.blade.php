@@ -19,7 +19,7 @@
                                 $menus = [
                                     ['nama' => 'Manajemen Pegawai', 'url' => '/pegawai'],
                                     ['nama' => 'Manajemen Unit', 'url' => '/refunits'],
-                                    ['nama' => 'Manajemen Jabatan', 'url' => '#'],
+                                    ['nama' => 'Manajemen Jabatan', 'url' => '/ref-jabatan'],
                                     ['nama' => 'Manajemen Uraian Pekerjaan', 'url' => '/uraian-pekerjaan'],
                                     ['nama' => 'Manajemen Uraian Pekerjaan per Jabatan', 'url' => '/uraian-pekerjaan-jabatan'],
                                     ['nama' => 'Laporan Poin tiap Unit', 'url' => route('perolehan-poin-tiap-unit')],
