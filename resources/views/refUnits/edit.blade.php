@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="container mt-3">
-        <h2 class="mt-3 mb-3">Ubah Data Pegawai</h2>
+        <h2 class="mt-3 mb-3">Ubah Data Pegawai</gith2>
         <div class="row">
             <div class="col-12">
 
