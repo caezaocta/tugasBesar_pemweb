@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="container mt-3">
-        <h2 class="mt-3">Tabel Data Pegawai</h2>
+        <h2 class="mt-3">Tabel Ref Unit</h2>
         <div class="row">
             <div class="col-12">
 

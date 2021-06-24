@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SkpTarget;
+use App\Models\Periode;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,14 +29,6 @@ class SkpTargetsController extends Controller
             ->select('skp_targets.*')
             ->get();
 
-
-        //         SELECT * FROM skp_targets
-        // LEFT JOIN pegawai ON pegawai.id == skp_target.id_pegawai
-        // LEFT JOIN users ON users.id == pegawai.id_user
-        // WHERE users.id == ?;
-
-
-        // $skpTargets = SkpTarget::all();
         return view('skpTargets.index', compact('skpTargets'));
     }
 
@@ -47,7 +40,19 @@ class SkpTargetsController extends Controller
     public function create()
     {
         //
-        return view('skpTargets.create');
+        $daftarPeriode = Periode::all();
+
+        $daftarUraianPekerjaan = DB::table('uraian_pekerjaan')
+            ->join('uraian_pekerjaan_jabatan', 'uraian_pekerjaan_jabatan.id_uraian_pekerjaan', '=', 'uraian_pekerjaan.id')
+            ->join('pegawai', 'pegawai.id_jabatan', '=', 'uraian_pekerjaan_jabatan.id_jabatan')
+            ->where('pegawai.id_user', '=', Auth::id())
+            ->select('uraian_pekerjaan.uraian', 'uraian_pekerjaan_jabatan.id')
+            ->get();
+
+        return view('skpTargets.create', [
+            'daftarPeriode' => $daftarPeriode,
+            'daftarUraianPekerjaan' => $daftarUraianPekerjaan
+        ]);
     }
 
     /**
@@ -59,15 +64,27 @@ class SkpTargetsController extends Controller
     public function store(Request $request)
     {
         //
+
+       
+
         $request->validate([
-            'jml_target' => 'required',
-            'id_pegawai' => 'required',
+            // 'jml_target' => 'required',
+            // 'id_pegawai' => 'required',
             'id_periode' => 'required',
             'id_uraian_pekerjaan_jabatan' => 'required',
         ]);
 
+        $daftarJumlahTarget = DB::table('uraian_pekerjaan')
+        ->join('uraian_pekerjaan_jabatan', 'uraian_pekerjaan_jabatan.id_uraian_pekerjaan', '=', 'uraian_pekerjaan.id')
+        ->where('uraian_pekerjaan_jabatan.id', '=', $request->input('id_uraian_pekerjaan_jabatan'))
+        ->select('uraian_pekerjaan.poin')
+        ->get();
+
+
 
         SkpTarget::create(array_merge($request->all(), [
+            'jml_target' => $daftarJumlahTarget[0]->poin,
+            'id_pegawai' => $request->user()->as_pegawai()->first()->id,
             'created_by' => $request->user()->id,
             // 'id_unit_parent' => $request -> user() -> id,
             'updated_by' => $request->user()->id,

@@ -45,11 +45,16 @@ class User extends Authenticatable
         return $this->hasOne(Pegawai::class, 'id_user');
     }
 
+    public function is_admin() {
+        $admins = config('auth.admins');
+        return in_array($this->name, $admins);
+    }
+
     public static function get_admins() {
         $admins = config('auth.admins');
 
         return User::all()
-                    ->filter(function ($user) {
+                    ->filter(function ($user) use ($admins) {
                         return in_array($user->name, $admins);
                     });
     }

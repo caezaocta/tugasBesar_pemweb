@@ -11,7 +11,7 @@ class SkpTarget extends Model
   
     protected $fillable = ['jml_target', 'id_pegawai', 'id_periode', 'id_uraian_pekerjaan_jabatan', 'created_by', 'updated_by'];
 
-    protected $table = 'skp_target';
+    protected $table = 'skp_targets';
 
     /**
      * The event map for the model.
