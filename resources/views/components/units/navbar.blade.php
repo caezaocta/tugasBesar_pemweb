@@ -40,7 +40,13 @@
 
                     {{-- Versi layar kecil --}}
                     <div class="d-lg-none">
-                        <a class="nav-link disabled" href="#">{{ Auth::user()->name }}</a>
+                        <a class="nav-link disabled" href="#">
+                            {{ Auth::user()->name }}
+
+                            @if (Auth::user()->is_admin())
+                                <span class="badge bg-success">admin</span>
+                            @endif
+                        </a>
                         <a class="nav-link logout-btn" href="#">Logout</a>
                     </div>
 
@@ -49,6 +55,10 @@
                         <p class="dropdown-toggle m-0" id="user-dropdown" data-bs-toggle="dropdown"
                                 aria-expanded="false" role="button">
                             {{ Auth::user()->name }}
+
+                            @if (Auth::user()->is_admin())
+                                <span class="badge bg-success">admin</span>
+                            @endif
                         </p>
 
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="user-dropdown">
