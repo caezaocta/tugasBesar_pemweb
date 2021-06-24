@@ -5,6 +5,7 @@ use App\Http\Controllers\LaporanPoinUnit;
 use App\Http\Controllers\SkpRealisasiController;
 use App\Http\Controllers\UraianPekerjaanController;
 use App\Http\Controllers\UraianPekerjaanJabatanController;
+use App\Http\Controllers\RefJabatanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/dashboard');
 });
+
 
 // Routes Ref Unit
 //
@@ -65,6 +67,9 @@ Route::resource('skp-realisasi', SkpRealisasiController::class)
 
 Route::resource('uraian-pekerjaan-jabatan', UraianPekerjaanJabatanController::class)
         ->except(['show']);
+
+
+Route::resource('ref-jabatan', RefJabatanController::class);
 
 
 Route::prefix('downloads')->group(function () {

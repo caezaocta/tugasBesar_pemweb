@@ -11,6 +11,13 @@ class RefJabatan extends Model
 
     protected $table = 'ref_jabatan';
 
+    protected $fillable = [
+        'nama',
+        'keterangan',
+        'is_active',
+        'created_by',
+        'updated_by',
+    ];
     /**
      * Many-to-Many relationship dengan UraianPekerjaan.
      */
