@@ -40,7 +40,7 @@
 
                     <tbody class="table-striped">
                         @foreach ($skpTargets as $skpTarget)
-                            <tr>
+                            <tr class="align-middle">
                                 <th scope="row">{{ $skpTarget->id }}</th>
                                 <td>{{ $skpTarget->jml_target }}</td>
                                 <td>{{ $skpTarget->created_at }}</td>
